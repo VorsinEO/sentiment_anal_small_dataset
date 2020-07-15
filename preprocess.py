@@ -1,5 +1,8 @@
 import re
 from collections import Counter
+import nltk
+nltk.download('wordnet')
+nltk.download('punkt')
 from nltk.corpus import wordnet
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
