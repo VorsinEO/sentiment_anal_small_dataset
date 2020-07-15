@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block container %}
+
+
+  {% include 'header.html' %}
+  <main class="container mt-3">
+  {% include 'main_banner.html' %}
+  <form action="/" method="POST" >
+    <!-- Чтобы валидацию WTF пройти вставляем внутри формы такое-->
+      {{ form.csrf_token() }}
+      <div class="form-label-group">
+        <p class="text-muted"> Review for analyse</p>
+        {{form.review(class="form-control")}}
+        {% for err in form.review.errors %}
+        <p class="alert-warning">{{ err }}</p> 
+        {% endfor %}
+      </div>
+      <button class="btn btn-lg btn-dark btn-block my-3" type="submit">Analyse</button>
+  </form>
+  </main>
+  {% endblock %}

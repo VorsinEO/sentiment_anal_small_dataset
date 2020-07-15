@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block container %}
+{% include 'header.html' %}
+<main class="container">
+    <div class="jumbotron">
+        <h1>The last 5 analysis</h1>
+      </div>
+    <div class="row my-2">
+        <div class="col-1 font-weight-bold">id</div>
+        <div class="col-6 font-weight-bold">Review</div>
+        <div class="col-2 font-weight-bold">Predicted sentiment</div>
+        <div class="col-1 font-weight-bold">Prob of neg</div>
+        <div class="col-1 font-weight-bold">Prob of pos</div>
+        <div class="col-1 font-weight-bold">Is it correct</div>
+    </div>
+    {% for res in results%}
+    <div class="row">
+        <div class="col-1">{{res.id}}</div>
+        <div class="col-6">{{res.origin_text}} </div>
+        {% if res.sentiment == 1%}
+        <div class="col-2">Positive</div>
+        {% else%}
+        <div class="col-2">Negative</div>
+        {% endif%}
+        <div class="col-1">{{res.sentiment_proba_neg}}</div>
+        <div class="col-1">{{res.sentiment_proba_pos}}</div>
+        <div class="col-1">{{res.check_answer}}</div>
+    </div>
+    {% endfor%}
+    <div class="mt-5"><hr/></div>
+    <div class="my-5"><strong>Accuracy by user validation:</strong> {{accuracy}}</div>
+
+</main>
+{% endblock %}

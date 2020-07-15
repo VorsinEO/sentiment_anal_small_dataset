@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block container %}
+{% include 'header.html' %}
+<main class="container">
+    <div class="jumbotron">
+        
+        <h1>About page</h1>
+
+       
+      </div>
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="nav-item">
+          <a class="nav-link active" data-toggle="tab" aria-controls="rus" href="#rus" role="tab">Rus</a>
+        </li>
+        <li role="presentation" class="nav-item">
+          <a class="nav-link" data-toggle="tab" aria-controls="eng"  href="#eng" role="tab">Eng</a>
+        </li>
+
+      </ul>
+      <div class="tab-content mt-3">
+        <div role="tabpanel" class="tab-pane fade show active" id="rus">
+            <p>Этот проект был подготовлен в процессе обучения по специализации МФТИ и Яндекс по Машинному обучению и курса по изучению Flask.</p>
+            <p><strong>Модель по анализу текста</strong></p>
+            <p>Ядром проекта является модель предобученная на 1500 размеченных отзывов о товарах с Amazon. 
+            Первая часть модели это подготовка теста с помощью лемматизации, исключения ряда специальных символов и векторизация текста.
+            Вторая часть модели это обучение нескольких классификаторов разного типа и построение ансамбля для классификации текста.
+            Подробнее о модель можно узнать из тетрадки на гитхабе.</p>
+            <p><strong>Веб-приложение</strong></p>
+            <p>Веб-приложение или сайт подготовлен на Flask, используются WTFforms для форм ввода текста и валидация количества символов.
+            Используется SQLAlchemy и SQLite база данных для сохранения отзывов и валидации (когда пользователь оценивает результаты работы модели).
+            Верстка на Bootstrap.</p>
+            <p>Проект можно рассматривать как заготовку для публикации NLP моделей по работе с текстами и сборку размеченной выборки от пользователей приложения.</p>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="eng">
+            <p>This project was prepared in the process of training in the specialization of MIPT and Yandex "Machine learning" and Flask course from Stepik.</p>
+            <p><strong>Text Analysis Model</strong></p>
+            <p>The core of the project is a model pre-trained on 1500 marked product reviews from Amazon. 
+                The first part of the model is the preparation of the test using lemmatization, elimination of a number of special characters and text vectorization.
+                The second part of the model is training several classifiers of different types and building an ensemble for text classification.
+                More details about the model can be found in the notebook on GitHub.</p>
+            <p><strong>Web application</strong></p>
+            <p>The web application or website is prepared in Flask, WTF forms is used for text entry forms and character number validation.
+                SQLAlchemy and SQLite database are used to save feedback and validation (when the user evaluates the model results).
+                Bootstrap was used at the front.</p>
+            <p>ПThe project can be considered as a pre-publication of NLP models for working with texts and building a marked sample from the application users.</p>
+        </div>
+
+      </div>
+
+      <div>
+
+</main>
+{% endblock %}
