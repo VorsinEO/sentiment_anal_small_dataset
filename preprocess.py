@@ -6,6 +6,9 @@ nltk.download('punkt')
 from nltk.corpus import wordnet
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
+#препроцессинг русского текста
+from pymystem3 import Mystem
+from string import punctuation
 
 normalizer = WordNetLemmatizer()
 
@@ -36,3 +39,14 @@ def preprocess_text(text):
     # Лемматизация с использованием наиболее вероятной части речи
     normalized = " ".join([normalizer.lemmatize(token, get_part_of_speech(token)) for token in tokenized])
     return normalized
+
+mystem = Mystem() 
+
+def preprocess_text_rus(text):
+    tokens = mystem.lemmatize(text.lower())
+    tokens = [token for token in tokens if token != " " \
+              and token.strip() not in punctuation]
+    
+    text = " ".join(tokens)
+    
+    return text

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block container %}
+{% include 'header_ru.html' %}
+<main class="container">
+    <div class="jumbotron">
+        {% if res.sentiment == 1%}
+        <h1>Результат анализа - людям это нравится😍</h1>
+        {% else%}
+        <h1>Результат анализа - людям это не нравится 🤬</h1>
+        {% endif%}
+        <p>В таблице ниже приведен результат анализа. В ней также показаны вероятности того, является ли обзор положительным или отрицательным.</p> 
+      </div>
+    <div class="row my-2">
+        <div class="col-6 font-weight-bold">Review</div>
+        <div class="col-2 font-weight-bold">Predicted sentiment</div>
+        <div class="col-2 font-weight-bold">Prob of neg</div>
+        <div class="col-2 font-weight-bold">Prob of pos</div>
+    </div>
+    <div class="row mb-5">
+        <div class="col-6">{{res.origin_text}} </div>
+        {% if res.sentiment == 1%}
+        <div class="col-2">Positive</div>
+        {% else%}
+        <div class="col-2">Negative</div>
+        {% endif%}
+        <div class="col-2">{{res.sentiment_proba_neg}}</div>
+        <div class="col-2">{{res.sentiment_proba_pos}}</div>
+    </div>
+
+    {% if not answer_exist%}
+    <div class="alert alert-info mt-5">
+        <strong>Info!</strong> Вы можете помочь нам улучшить качество, ответив на вопрос ниже.
+      </div>
+    <hr/>
+    <div class="row my-4 pl-3">
+        <h3>Вы согласны с анализом? Или нет?</h3>
+    </div>
+    <div class="row my-2 pl-3">
+        <a href="/answer_rus/{{res.id}}/1/" class="btn btn-success mr-4" role="button">True</a>
+        <a href="/answer_rus/{{res.id}}/0/" class="btn btn-danger ml-4" role="button">False</a>
+    </div>
+    {% endif%}
+
+    {% if show_thanks%}
+    <div class="mt-5"><hr/></div>
+    <div class="alert alert-success mt-5">
+        <strong>Success!</strong> Спасибо за вашу помощь в улучшении нашего проекта!
+      </div>
+
+    {% endif%}
+
+</main>
+{% endblock %}

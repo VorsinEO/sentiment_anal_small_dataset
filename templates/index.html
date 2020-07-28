@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block container %}
+
+
+  {% include 'header_index.html' %}
+  <main class="container mt-3">
+    <div class="container">
+      <section class="my-5 jumbotron jumbotron-fluid">
+        <div class="text-center">
+          
+          <h1 class="h2  m-2">Выбери язык анализа / Select the language of analysis</h1>
+          
+          
+        </div>
+      </section>
+
+      
+
+      <div class="card-deck">
+
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top img-fluid" src="/static/England.png" alt="..." style="width: 18rem; height: 20rem;"> 
+            <div class="card-body">
+              <h4 class="card-title">EngAnal</h4>
+              <p class="card-text">Sentiment analysis for english reviews</p>
+              <a href="/english_anal/" class="btn btn-primary">Let's try</a>
+            </div>
+          </div>
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top img-fluid" src="/static/Russia4.png" alt="..." style="width: 18rem; height: 20rem;">
+              <div class="card-body">
+                <h4 class="card-title">RusAnal</h4>
+                <p class="card-text">Анализ тональности для русскоязычных отзывов</p>
+                <a href="/russian_anal/" class="btn btn-primary">Попробуй</a>
+              </div>
+            </div>
+
+
+      </div>
+    </div>
+
+
+  </main>
+  {% endblock %}

@@ -11,26 +11,27 @@
       </div>
       <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="nav-item">
-          <a class="nav-link active" data-toggle="tab" aria-controls="rus" href="#rus" role="tab">Rus</a>
+          <a class="nav-link active" data-toggle="tab" aria-controls="rus" href="#rus" role="tab">RusAnal</a>
         </li>
         <li role="presentation" class="nav-item">
-          <a class="nav-link" data-toggle="tab" aria-controls="eng"  href="#eng" role="tab">Eng</a>
+          <a class="nav-link" data-toggle="tab" aria-controls="eng"  href="#eng" role="tab">EngAnal</a>
         </li>
 
       </ul>
       <div class="tab-content mt-3">
         <div role="tabpanel" class="tab-pane fade show active" id="rus">
-            <p>Этот проект был подготовлен в процессе обучения по специализации МФТИ и Яндекс по Машинному обучению и курса по изучению Flask.</p>
-            <p><strong>Модель по анализу текста</strong></p>
-            <p>Ядром проекта является модель предобученная на 2000 размеченных отзывов о товарах с Amazon. 
-            Первая часть модели это подготовка теста с помощью лемматизации, исключения ряда специальных символов и векторизация текста.
-            Вторая часть модели это обучение нескольких классификаторов разного типа и построение ансамбля для классификации текста.
-            Подробнее о модель можно узнать из тетрадки на <a href="https://github.com/VorsinEO/sentiment_anal_small_dataset/tree/master/model_notebook">гитхабе</a>.</p>
-            <p><strong>Веб-приложение</strong></p>
-            <p>Веб-приложение или сайт подготовлен на Flask, используются WTFforms для форм ввода текста и валидация количества символов.
-            Используется SQLAlchemy и SQLite база данных для сохранения отзывов и валидации (когда пользователь оценивает результаты работы модели).
-            Верстка на Bootstrap.</p>
-            <p>Проект можно рассматривать как заготовку для публикации NLP моделей по работе с текстами и сборку размеченной выборки от пользователей приложения.</p>
+          <p>Этот проект был подготовлен в процессе обучения по специализации МФТИ и Яндекс по Машинному обучению и курса по изучению Flask.</p>
+          <p><strong>Сбор данных для обучения</strong><br>
+          Сбор данных для обучения осуществлялся через сбор отзывов на мобильные телефоны с рейтингом от 1 до 5. Для сбора использовал связку request и BS4. Так же собирал с помощью Scrapy, но там выходит более громоздкая конструкция для этой задачи. Поэтому остановился именно на request+BS4. Собрал 20000 отзывов, разделил их на положительные(рейтинг 4-5)и отрицательные(рейтинг 1-3). Пропорции примерно 3 к 1, поесть минимум 5к объектов для обучения одного класса было.</p>
+          
+          <p><strong>Модель по анализу текста</strong><br>
+          Сначала предобработка текста с помощью pymystem3. Затем векторизация и далее Логистическая регрессия. На кроссвалидации качество сразу было выше необходимого по задаче (acc 0.85+) и остановился на этой модели. На тесте в кагале дало acc 0.97.<br>
+          Дальше планирую попробовать тут применить более сложные подходы - использовать BERT через DeepPavlov или другой инструментарий. Но не хватает знаний как это делать, а копировать чужой код не доставит фана, поэтому сначала разберусь немного с этими нейронными сетями и попробую позже.</p>
+          
+          <p><strong>Веб-приложение </strong><br>
+          Веб-приложение или сайт подготовлен на Flask, используются WTFforms для форм ввода текста и валидация количества символов.Используется SQLAlchemy и SQLite база данных для сохранения отзывов и валидации (когда пользователь оценивает результаты работы модели). Верстка на Bootstrap.<br>
+          Проект можно рассматривать как заготовку для публикации NLP моделей по работе с текстами и сборку размеченной выборки от пользователей приложения<br>
+          </p>
         </div>
         <div role="tabpanel" class="tab-pane fade" id="eng">
             <p>This project was prepared in the process of training in the specialization of MIPT and Yandex "Machine learning" and Flask course from Stepik.</p>
@@ -43,7 +44,7 @@
             <p>The web application or website is prepared in Flask, WTF forms is used for text entry forms and character number validation.
                 SQLAlchemy and SQLite database are used to save feedback and validation (when the user evaluates the model results).
                 Bootstrap was used at the front.</p>
-            <p>ПThe project can be considered as a pre-publication of NLP models for working with texts and building a marked sample from the application users.</p>
+            <p>The project can be considered as a pre-publication of NLP models for working with texts and building a marked sample from the application users.</p>
         </div>
 
       </div>

@@ -1,18 +1,5 @@
 <header class="container mt-3">
-    <!-- <nav class="py-1 navbar navbar-dark bg-dark">
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <a class=" h5 mt-2 text-white bg-dark" href="/">SentAnal</a>
-      </ul>
-      <p class="my-2 text-white bg-dark "> What people think about your product:&nbsp;😍&nbsp;or&nbsp;🤬&nbsp;? </p>
-      
-     
-      {% if current_user != ''%}
-      <a href="/logout/" class="btn btn-warning btn-sm ml-4">Выйти</a>
-      {% else %}
-      <a href="/login/" class="btn btn-warning btn-sm ml-4">Войти</a>
-      {% endif%}
-      
-    </nav>-->
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="/">SentAnal</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,7 +7,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-item nav-link {% if request.path=='/'%} active {% endif%}" href="/">Home</a>
+          <a class="nav-item nav-link {% if request.path=='/'%} active {% endif%}" href="/english_anal/">EngAnal</a>
           <a class="nav-item nav-link {% if request.path=='/previous_analysis/'%} active {% endif%}" href="/previous_analysis/">Last analysis</a>
           <a class="nav-item nav-link {% if request.path=='/about/'%} active {% endif%}" href="/about/">About</a>
           

@@ -1,0 +1,18 @@
+<header class="container mt-3">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">SentAnal</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link {% if request.path=='/'%} active {% endif%}" href="/russian_anal/">Еще один анализ</a>
+          <a class="nav-item nav-link {% if request.path=='/previous_analysis/'%} active {% endif%}" href="/previous_analysis_rus/">История анализов</a>
+          <a class="nav-item nav-link {% if request.path=='/about/'%} active {% endif%}" href="/about/">О проекте</a>
+          
+        </div>
+      </div>
+      <p class="my-2 text-white bg-dark "> What people think about your product:&nbsp;😍&nbsp;or&nbsp;🤬&nbsp;? </p>
+    </nav>
+  </header>
